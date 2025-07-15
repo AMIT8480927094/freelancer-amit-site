@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services – Freelancer Amit</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-blue-100 text-gray-800">
+  
+  {% include 'navbar.html' %}
+
+  <header class="text-center py-10">
+    <h1 class="text-3xl font-bold text-purple-800">Our Services</h1>
+    <p class="text-md text-gray-600">All-in-one solutions for your tech and business needs</p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <a href="{{ url_for('service_detail', name='web') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up">
+        <div class="text-4xl">💻</div>
+        <h2 class="text-xl font-semibold mt-2">Website Design</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='gst') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-4xl">🧾</div>
+        <h2 class="text-xl font-semibold mt-2">GST Filing</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='itr') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-4xl">📄</div>
+        <h2 class="text-xl font-semibold mt-2">ITR Filing</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='dsc') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-4xl">🔐</div>
+        <h2 class="text-xl font-semibold mt-2">DSC Certificate</h2>
+      </a>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-600">
+    &copy; 2025 Freelancer Amit. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
