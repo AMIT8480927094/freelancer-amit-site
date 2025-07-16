@@ -3,118 +3,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Services | Freelancer Amit</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Our Services – Freelancer Amit</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
-      color: #333;
+      background: #f2f6fc;
       margin: 0;
       padding: 0;
     }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    .section h2 {
-      background: #005eff;
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .category {
+      margin-bottom: 30px;
+    }
+    .category h2 {
+      background: #4CAF50;
       color: white;
-      padding: 12px 20px;
+      padding: 10px 15px;
       border-radius: 6px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
     }
     .service-item {
-      background: white;
-      border-left: 5px solid #005eff;
-      margin-bottom: 15px;
-      padding: 12px 20px;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      flex: 1 1 30%;
+      background: #e3f2fd;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      transition: 0.3s;
     }
     .service-item:hover {
-      transform: scale(1.01);
+      background: #bbdefb;
+      transform: scale(1.03);
     }
-    .title {
+    .service-item a {
+      text-decoration: none;
+      color: #0d47a1;
       font-weight: bold;
     }
-    .price {
-      color: #007b00;
-      font-weight: bold;
+    @media (max-width: 768px) {
+      .service-item {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Explore Our Services</h1>
 
-  <div class="section">
-    <h2>📁 Accounting & Bookkeeping</h2>
-    <div class="service-item">
-      <div class="title">Monthly Bookkeeping</div>
-      <div class="price">₹1,000 – ₹2,000/month</div>
-    </div>
-    <div class="service-item">
-      <div class="title">Ledger & Bank Reconciliation</div>
-      <div class="price">₹500 – ₹1,000/month</div>
-    </div>
-    <div class="service-item">
-      <div class="title">Final Account Preparation</div>
-      <div class="price">₹1,500 – ₹3,000</div>
-    </div>
+    {% set categories = {
+      "Accounting & Bookkeeping": ["bookkeeping", "reconciliation", "finalaccounts"],
+      "GST Services": ["gstregistration", "gstfiling", "gstupdate", "ewaybill", "itc"],
+      "Income Tax Services": ["pan", "itr", "itrbusiness", "tds", "advancetax"],
+      "Business/Startup Registration": ["proprietorship", "msme", "fssai", "startupindia", "shoplicense"],
+      "ROC & MCA Filing": ["companyinc", "dsc", "roc", "dirkyc"],
+      "Payroll & Compliance": ["pfesi", "pfesireturn", "salaryslip", "pt"],
+      "Documents & Reporting": ["projectreport", "invoice", "docchecklist", "quotation"]
+    } %}
+
+    {% for category, keys in categories.items() %}
+      <div class="category">
+        <h2>{{ category }}</h2>
+        <div class="service-list">
+          {% for key in keys %}
+            <div class="service-item">
+              <a href="{{ url_for('service_detail', name=key) }}">
+                {{ services[key].title }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
   </div>
-
-  <div class="section">
-    <h2>💼 GST Services</h2>
-    <div class="service-item"><div class="title">GST Registration</div><div class="price">₹500 – ₹800</div></div>
-    <div class="service-item"><div class="title">GST Return Filing</div><div class="price">₹300 – ₹700/month</div></div>
-    <div class="service-item"><div class="title">GST Amendment / Cancellation</div><div class="price">₹400 – ₹600</div></div>
-    <div class="service-item"><div class="title">E-invoice & E-way Bill Setup</div><div class="price">₹300 – ₹500</div></div>
-    <div class="service-item"><div class="title">ITC Reconciliation</div><div class="price">₹500 – ₹800</div></div>
-  </div>
-
-  <div class="section">
-    <h2>🧾 Income Tax Services</h2>
-    <div class="service-item"><div class="title">PAN / TAN Application</div><div class="price">₹150 – ₹300</div></div>
-    <div class="service-item"><div class="title">Individual ITR Filing</div><div class="price">₹300 – ₹500</div></div>
-    <div class="service-item"><div class="title">Business/Freelancer ITR</div><div class="price">₹600 – ₹1,000</div></div>
-    <div class="service-item"><div class="title">TDS Return Filing</div><div class="price">₹600 – ₹1,200/quarter</div></div>
-    <div class="service-item"><div class="title">Advance Tax Calculation</div><div class="price">₹300</div></div>
-  </div>
-
-  <div class="section">
-    <h2>🏢 Business / Startup Registration</h2>
-    <div class="service-item"><div class="title">Proprietorship Registration</div><div class="price">₹500 – ₹800</div></div>
-    <div class="service-item"><div class="title">MSME / Udyam Registration</div><div class="price">₹300</div></div>
-    <div class="service-item"><div class="title">FSSAI Registration</div><div class="price">₹500 – ₹700</div></div>
-    <div class="service-item"><div class="title">Startup India / DPIIT</div><div class="price">₹1,000</div></div>
-    <div class="service-item"><div class="title">Shop & Establishment License</div><div class="price">₹800 – ₹1,200</div></div>
-  </div>
-
-  <div class="section">
-    <h2>📝 ROC & MCA Filing</h2>
-    <div class="service-item"><div class="title">Company Incorporation</div><div class="price">₹3,000 – ₹5,000</div></div>
-    <div class="service-item"><div class="title">DIN, DSC Filing</div><div class="price">₹500 – ₹800</div></div>
-    <div class="service-item"><div class="title">Annual ROC Filing</div><div class="price">₹1,200 – ₹2,000</div></div>
-    <div class="service-item"><div class="title">Director KYC</div><div class="price">₹300</div></div>
-  </div>
-
-  <div class="section">
-    <h2>👨‍💼 Payroll & Compliance</h2>
-    <div class="service-item"><div class="title">PF & ESI Registration</div><div class="price">₹500 each</div></div>
-    <div class="service-item"><div class="title">PF/ESI Monthly Return</div><div class="price">₹300 – ₹600</div></div>
-    <div class="service-item"><div class="title">Salary Slip Creation</div><div class="price">₹200/month/employee</div></div>
-    <div class="service-item"><div class="title">Professional Tax Registration</div><div class="price">₹400</div></div>
-  </div>
-
-  <div class="section">
-    <h2>📊 Business Documents</h2>
-    <div class="service-item"><div class="title">Project Report for Loan</div><div class="price">₹1,000 – ₹2,000</div></div>
-    <div class="service-item"><div class="title">Invoice / Letterhead Design</div><div class="price">₹300</div></div>
-    <div class="service-item"><div class="title">Document Checklist</div><div class="price">₹300</div></div>
-    <div class="service-item"><div class="title">Quotation Format</div><div class="price">₹300</div></div>
-  </div>
-
 </body>
 </html>
