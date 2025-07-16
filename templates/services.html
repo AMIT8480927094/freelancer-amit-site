@@ -1,47 +1,120 @@
+{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Services – Freelancer Amit</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Services | Freelancer Amit</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h2 {
+      background: #005eff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .service-item {
+      background: white;
+      border-left: 5px solid #005eff;
+      margin-bottom: 15px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .service-item:hover {
+      transform: scale(1.01);
+    }
+    .title {
+      font-weight: bold;
+    }
+    .price {
+      color: #007b00;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-purple-100 to-blue-100 text-gray-800">
-  
-  {% include 'navbar.html' %}
+<body>
 
-  <header class="text-center py-10">
-    <h1 class="text-3xl font-bold text-purple-800">Our Services</h1>
-    <p class="text-md text-gray-600">All-in-one solutions for your tech and business needs</p>
-  </header>
-
-  <main class="max-w-5xl mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <a href="{{ url_for('service_detail', name='web') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up">
-        <div class="text-4xl">💻</div>
-        <h2 class="text-xl font-semibold mt-2">Website Design</h2>
-      </a>
-      <a href="{{ url_for('service_detail', name='gst') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="100">
-        <div class="text-4xl">🧾</div>
-        <h2 class="text-xl font-semibold mt-2">GST Filing</h2>
-      </a>
-      <a href="{{ url_for('service_detail', name='itr') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="200">
-        <div class="text-4xl">📄</div>
-        <h2 class="text-xl font-semibold mt-2">ITR Filing</h2>
-      </a>
-      <a href="{{ url_for('service_detail', name='dsc') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="300">
-        <div class="text-4xl">🔐</div>
-        <h2 class="text-xl font-semibold mt-2">DSC Certificate</h2>
-      </a>
+  <div class="section">
+    <h2>📁 Accounting & Bookkeeping</h2>
+    <div class="service-item">
+      <div class="title">Monthly Bookkeeping</div>
+      <div class="price">₹1,000 – ₹2,000/month</div>
     </div>
-  </main>
+    <div class="service-item">
+      <div class="title">Ledger & Bank Reconciliation</div>
+      <div class="price">₹500 – ₹1,000/month</div>
+    </div>
+    <div class="service-item">
+      <div class="title">Final Account Preparation</div>
+      <div class="price">₹1,500 – ₹3,000</div>
+    </div>
+  </div>
 
-  <footer class="text-center py-6 text-sm text-gray-600">
-    &copy; 2025 Freelancer Amit. All rights reserved.
-  </footer>
+  <div class="section">
+    <h2>💼 GST Services</h2>
+    <div class="service-item"><div class="title">GST Registration</div><div class="price">₹500 – ₹800</div></div>
+    <div class="service-item"><div class="title">GST Return Filing</div><div class="price">₹300 – ₹700/month</div></div>
+    <div class="service-item"><div class="title">GST Amendment / Cancellation</div><div class="price">₹400 – ₹600</div></div>
+    <div class="service-item"><div class="title">E-invoice & E-way Bill Setup</div><div class="price">₹300 – ₹500</div></div>
+    <div class="service-item"><div class="title">ITC Reconciliation</div><div class="price">₹500 – ₹800</div></div>
+  </div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <div class="section">
+    <h2>🧾 Income Tax Services</h2>
+    <div class="service-item"><div class="title">PAN / TAN Application</div><div class="price">₹150 – ₹300</div></div>
+    <div class="service-item"><div class="title">Individual ITR Filing</div><div class="price">₹300 – ₹500</div></div>
+    <div class="service-item"><div class="title">Business/Freelancer ITR</div><div class="price">₹600 – ₹1,000</div></div>
+    <div class="service-item"><div class="title">TDS Return Filing</div><div class="price">₹600 – ₹1,200/quarter</div></div>
+    <div class="service-item"><div class="title">Advance Tax Calculation</div><div class="price">₹300</div></div>
+  </div>
+
+  <div class="section">
+    <h2>🏢 Business / Startup Registration</h2>
+    <div class="service-item"><div class="title">Proprietorship Registration</div><div class="price">₹500 – ₹800</div></div>
+    <div class="service-item"><div class="title">MSME / Udyam Registration</div><div class="price">₹300</div></div>
+    <div class="service-item"><div class="title">FSSAI Registration</div><div class="price">₹500 – ₹700</div></div>
+    <div class="service-item"><div class="title">Startup India / DPIIT</div><div class="price">₹1,000</div></div>
+    <div class="service-item"><div class="title">Shop & Establishment License</div><div class="price">₹800 – ₹1,200</div></div>
+  </div>
+
+  <div class="section">
+    <h2>📝 ROC & MCA Filing</h2>
+    <div class="service-item"><div class="title">Company Incorporation</div><div class="price">₹3,000 – ₹5,000</div></div>
+    <div class="service-item"><div class="title">DIN, DSC Filing</div><div class="price">₹500 – ₹800</div></div>
+    <div class="service-item"><div class="title">Annual ROC Filing</div><div class="price">₹1,200 – ₹2,000</div></div>
+    <div class="service-item"><div class="title">Director KYC</div><div class="price">₹300</div></div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💼 Payroll & Compliance</h2>
+    <div class="service-item"><div class="title">PF & ESI Registration</div><div class="price">₹500 each</div></div>
+    <div class="service-item"><div class="title">PF/ESI Monthly Return</div><div class="price">₹300 – ₹600</div></div>
+    <div class="service-item"><div class="title">Salary Slip Creation</div><div class="price">₹200/month/employee</div></div>
+    <div class="service-item"><div class="title">Professional Tax Registration</div><div class="price">₹400</div></div>
+  </div>
+
+  <div class="section">
+    <h2>📊 Business Documents</h2>
+    <div class="service-item"><div class="title">Project Report for Loan</div><div class="price">₹1,000 – ₹2,000</div></div>
+    <div class="service-item"><div class="title">Invoice / Letterhead Design</div><div class="price">₹300</div></div>
+    <div class="service-item"><div class="title">Document Checklist</div><div class="price">₹300</div></div>
+    <div class="service-item"><div class="title">Quotation Format</div><div class="price">₹300</div></div>
+  </div>
+
 </body>
 </html>
