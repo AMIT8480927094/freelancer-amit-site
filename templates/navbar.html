@@ -1,14 +1,17 @@
-<nav style="background-color: #0077cc; padding: 15px; text-align: center;">
-  <a href="/" style="color: white; text-decoration: none; margin: 0 15px;">Home</a>
-  <a href="/services" style="color: white; text-decoration: none; margin: 0 15px;">Services</a>
-  <a href="/pricing" style="color: white; text-decoration: none; margin: 0 15px;">Pricing</a>
-  <a href="/documents" style="color: white; text-decoration: none; margin: 0 15px;">Documents</a>
-  <a href="/contact" style="color: white; text-decoration: none; margin: 0 15px;">Contact</a>
-  {% if session.get('user') %}
-    <span style="color: #aaffaa; margin-left: 30px;">👤 {{ session['user'] }}</span>
-    <a href="/logout" style="color: yellow; text-decoration: none; margin-left: 15px;">Logout</a>
-  {% else %}
-    <a href="/login" style="color: white; text-decoration: none; margin-left: 15px;">Login</a>
-    <a href="/signup" style="color: white; text-decoration: none; margin-left: 15px;">Signup</a>
-  {% endif %}
+<nav class="bg-white shadow-md px-4 py-2 flex justify-between items-center">
+  <div class="text-lg font-bold text-blue-600">Freelancer Amit</div>
+  <div class="space-x-4">
+    <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
+    <a href="/services" class="text-gray-700 hover:text-blue-600">Services</a>
+    <a href="/pricing" class="text-gray-700 hover:text-blue-600">Pricing</a>
+    <a href="/documents" class="text-gray-700 hover:text-blue-600">Documents</a>
+    <a href="/contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+    {% if 'user' in session %}
+      <span class="text-green-600 font-semibold">{{ session['user'] }}</span>
+      <a href="/logout" class="text-red-600 hover:underline">Logout</a>
+    {% else %}
+      <a href="/login" class="text-gray-700 hover:text-blue-600">Login</a>
+      <a href="/signup" class="text-purple-700 hover:underline">Sign Up</a>
+    {% endif %}
+  </div>
 </nav>

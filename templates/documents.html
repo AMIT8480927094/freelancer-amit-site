@@ -1,119 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Documents Required – Freelancer Amit</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #f4f9ff;
-      color: #222;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px;
-    }
-    h2 {
-      color: #007acc;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .section {
-      background: #fff;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      padding: 20px 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .section h3 {
-      color: #004d80;
-      margin-bottom: 10px;
-    }
-    .section ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .section ul li {
-      padding: 6px 0;
-      font-size: 16px;
-    }
-    .icon {
-      color: #007acc;
-      margin-right: 6px;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-yellow-100 text-gray-800">
+
   {% include 'navbar.html' %}
-  <div class="container">
-    <h2>📄 Documents Required per Service</h2>
 
-    <div class="section">
-      <h3>📁 Accounting & Bookkeeping</h3>
-      <ul>
-        <li><i class="fas fa-file icon"></i> Bank statements</li>
-        <li><i class="fas fa-file icon"></i> Expense bills & vouchers</li>
-        <li><i class="fas fa-id-card icon"></i> PAN & Aadhaar of owner</li>
-      </ul>
-    </div>
+  <section class="max-w-4xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-bold text-yellow-800 mb-6 text-center">Documents Checklist</h1>
 
-    <div class="section">
-      <h3>💼 GST Services</h3>
-      <ul>
-        <li><i class="fas fa-id-card icon"></i> PAN, Aadhaar, Photo</li>
-        <li><i class="fas fa-home icon"></i> Address proof of business</li>
-        <li><i class="fas fa-bank icon"></i> Bank details / Cancelled Cheque</li>
-        <li><i class="fas fa-briefcase icon"></i> Business proof (Electricity Bill/Shop Licence)</li>
-      </ul>
+    <div class="space-y-6">
+      <div>
+        <h2 class="font-semibold text-lg">💻 Website Design</h2>
+        <ul class="list-disc pl-6">
+          <li>Business Name & Logo</li>
+          <li>Color or Design Reference</li>
+          <li>Service Details</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-semibold text-lg">🧾 GST Filing</h2>
+        <ul class="list-disc pl-6">
+          <li>PAN Card</li>
+          <li>GST Login Details</li>
+          <li>Sales & Purchase Data</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-semibold text-lg">📄 ITR Filing</h2>
+        <ul class="list-disc pl-6">
+          <li>PAN Card</li>
+          <li>Form 16 / Income Proof</li>
+          <li>Bank Statement</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-semibold text-lg">🔐 DSC Certificate</h2>
+        <ul class="list-disc pl-6">
+          <li>PAN Card</li>
+          <li>Aadhar Card</li>
+          <li>Passport Photo</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-      <h3>🧾 Income Tax Services</h3>
-      <ul>
-        <li><i class="fas fa-id-card icon"></i> PAN & Aadhaar</li>
-        <li><i class="fas fa-rupee-sign icon"></i> Salary slips or income proof</li>
-        <li><i class="fas fa-bank icon"></i> Bank account details</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>🏢 Business/Startup Registration</h3>
-      <ul>
-        <li><i class="fas fa-id-badge icon"></i> PAN, Aadhaar, Photo</li>
-        <li><i class="fas fa-building icon"></i> Rent agreement or ownership proof</li>
-        <li><i class="fas fa-briefcase icon"></i> Business activity details</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>📝 ROC & MCA Filing</h3>
-      <ul>
-        <li><i class="fas fa-id-card icon"></i> Director PAN & Aadhaar</li>
-        <li><i class="fas fa-file-alt icon"></i> Company incorporation certificate</li>
-        <li><i class="fas fa-file-signature icon"></i> DSC, DIN details</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>👨‍💼 Payroll & Employee Compliance</h3>
-      <ul>
-        <li><i class="fas fa-user icon"></i> Employee KYC documents</li>
-        <li><i class="fas fa-bank icon"></i> Salary structure & attendance</li>
-        <li><i class="fas fa-id-badge icon"></i> PF & ESI registration documents</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>📊 Reports & Business Documents</h3>
-      <ul>
-        <li><i class="fas fa-file-alt icon"></i> Loan requirement or project details</li>
-        <li><i class="fas fa-id-card icon"></i> Business KYC</li>
-        <li><i class="fas fa-briefcase icon"></i> Company logo/info (for invoice/letterhead)</li>
-      </ul>
-    </div>
-  </div>
 </body>
 </html>

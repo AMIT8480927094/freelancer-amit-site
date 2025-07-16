@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ service.title }} – Freelancer Amit</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f2faff;
-      color: #222;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #007acc;
-      margin-bottom: 10px;
-    }
-    .details {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-    .details:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .price {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #28a745;
-    }
-    a.back-link {
-      display: inline-block;
-      margin-top: 30px;
-      color: #007acc;
-      text-decoration: none;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ service.title }} – Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-gradient-to-tr from-yellow-100 to-pink-100 text-gray-800">
   {% include 'navbar.html' %}
 
-  <div class="container">
-    <div class="details">
-      <h2>{{ service.title }}</h2>
-      <p>{{ service.desc }}</p>
-      <div class="price">💰 Price: {{ service.price }}</div>
+  <section class="max-w-4xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-bold text-indigo-800 mb-4">{{ service.title }}</h1>
+    <p class="text-lg mb-6">{{ service.desc }}</p>
+
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">📑 Required Documents</h2>
+      <ul class="list-disc pl-6">
+        {% for doc in service.docs %}
+        <li>{{ doc }}</li>
+        {% endfor %}
+      </ul>
     </div>
 
-    <a class="back-link" href="{{ url_for('services_page') }}"><i class="fas fa-arrow-left"></i> Back to Services</a>
-  </div>
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+      <h3 class="text-lg font-semibold">💰 Price: <span class="text-green-600">{{ service.price }}</span></h3>
+    </div>
+
+    <a href="{{ url_for('contact') }}" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded shadow hover:bg-indigo-700">
+      Contact to Start Service
+    </a>
+  </section>
+
+  <footer class="text-center py-6 text-sm text-gray-600">
+    &copy; 2025 Freelancer Amit. All rights reserved.
+  </footer>
 </body>
 </html>

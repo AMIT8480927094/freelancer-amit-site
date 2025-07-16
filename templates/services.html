@@ -1,96 +1,47 @@
-{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Services – Freelancer Amit</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f6fc;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    .category {
-      margin-bottom: 30px;
-    }
-    .category h2 {
-      background: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 6px;
-    }
-    .service-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .service-item {
-      flex: 1 1 30%;
-      background: #e3f2fd;
-      border-radius: 8px;
-      padding: 12px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .service-item:hover {
-      background: #bbdefb;
-      transform: scale(1.03);
-    }
-    .service-item a {
-      text-decoration: none;
-      color: #0d47a1;
-      font-weight: bold;
-    }
-    @media (max-width: 768px) {
-      .service-item {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <h1>Explore Our Services</h1>
+<body class="bg-gradient-to-br from-purple-100 to-blue-100 text-gray-800">
+  
+  {% include 'navbar.html' %}
 
-    {% set categories = {
-      "Accounting & Bookkeeping": ["bookkeeping", "reconciliation", "finalaccounts"],
-      "GST Services": ["gstregistration", "gstfiling", "gstupdate", "ewaybill", "itc"],
-      "Income Tax Services": ["pan", "itr", "itrbusiness", "tds", "advancetax"],
-      "Business/Startup Registration": ["proprietorship", "msme", "fssai", "startupindia", "shoplicense"],
-      "ROC & MCA Filing": ["companyinc", "dsc", "roc", "dirkyc"],
-      "Payroll & Compliance": ["pfesi", "pfesireturn", "salaryslip", "pt"],
-      "Documents & Reporting": ["projectreport", "invoice", "docchecklist", "quotation"]
-    } %}
+  <header class="text-center py-10">
+    <h1 class="text-3xl font-bold text-purple-800">Our Services</h1>
+    <p class="text-md text-gray-600">All-in-one solutions for your tech and business needs</p>
+  </header>
 
-    {% for category, keys in categories.items() %}
-      <div class="category">
-        <h2>{{ category }}</h2>
-        <div class="service-list">
-          {% for key in keys %}
-            <div class="service-item">
-              <a href="{{ url_for('service_detail', name=key) }}">
-                {{ services[key].title }}
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <a href="{{ url_for('service_detail', name='web') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up">
+        <div class="text-4xl">💻</div>
+        <h2 class="text-xl font-semibold mt-2">Website Design</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='gst') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-4xl">🧾</div>
+        <h2 class="text-xl font-semibold mt-2">GST Filing</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='itr') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-4xl">📄</div>
+        <h2 class="text-xl font-semibold mt-2">ITR Filing</h2>
+      </a>
+      <a href="{{ url_for('service_detail', name='dsc') }}" class="bg-white p-6 rounded-lg shadow-lg text-center hover:bg-indigo-50" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-4xl">🔐</div>
+        <h2 class="text-xl font-semibold mt-2">DSC Certificate</h2>
+      </a>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-600">
+    &copy; 2025 Freelancer Amit. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>

@@ -1,84 +1,36 @@
-{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Service Pricing – Freelancer Amit</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f9fc;
-            margin: 0;
-            padding: 0;
-        }
-        .pricing-container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-        }
-        h1 {
-            text-align: center;
-            color: #222;
-            margin-bottom: 30px;
-        }
-        .category {
-            margin-bottom: 25px;
-        }
-        .category h2 {
-            font-size: 22px;
-            background: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 6px;
-        }
-        .service-item {
-            border-bottom: 1px solid #ddd;
-            padding: 12px 0;
-        }
-        .service-title {
-            font-weight: bold;
-            color: #333;
-        }
-        .service-desc {
-            color: #555;
-        }
-        .service-price {
-            float: right;
-            font-weight: bold;
-            color: #2196F3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing – Freelancer Amit</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="pricing-container">
-        <h1>Our Pricing</h1>
+<body class="bg-pink-100 text-gray-800">
 
-        {% set categories = {
-            "Accounting & Bookkeeping": ["bookkeeping", "reconciliation", "finalaccounts"],
-            "GST Services": ["gstregistration", "gstfiling", "gstupdate", "ewaybill", "itc"],
-            "Income Tax Services": ["pan", "itr", "itrbusiness", "tds", "advancetax"],
-            "Business/Startup Registration": ["proprietorship", "msme", "fssai", "startupindia", "shoplicense"],
-            "ROC & MCA Filing": ["companyinc", "dsc", "roc", "dirkyc"],
-            "Payroll & Compliance": ["pfesi", "pfesireturn", "salaryslip", "pt"],
-            "Documents & Reporting": ["projectreport", "invoice", "docchecklist", "quotation"]
-        } %}
+  {% include 'navbar.html' %}
 
-        {% for category, keys in categories.items() %}
-        <div class="category">
-            <h2>{{ category }}</h2>
-            {% for key in keys %}
-            <div class="service-item">
-                <span class="service-title">{{ services[key].title }}</span>
-                <span class="service-price">{{ services[key].price }}</span>
-                <div class="service-desc">{{ services[key].desc }}</div>
-            </div>
-            {% endfor %}
-        </div>
-        {% endfor %}
-
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <h1 class="text-3xl font-bold text-center text-pink-800 mb-6">Pricing</h1>
+    <div class="space-y-4">
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="font-bold text-lg">💻 Website Design</h2>
+        <p>Starts at ₹1499 – HTML, CSS, Python Based Responsive Sites</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="font-bold text-lg">🧾 GST Filing</h2>
+        <p>Monthly/Quarterly GST Filing – ₹499 onwards</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="font-bold text-lg">📄 ITR Filing</h2>
+        <p>Income Tax Return Filing – ₹399</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="font-bold text-lg">🔐 DSC Certificate</h2>
+        <p>Digital Signature Certificate – ₹899</p>
+      </div>
     </div>
+  </section>
+
 </body>
 </html>
