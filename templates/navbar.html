@@ -1,18 +1,14 @@
-<nav style="background: linear-gradient(to right, #4facfe, #00f2fe); padding: 15px; font-family: sans-serif;">
-  <div style="display: flex; justify-content: space-between; align-items: center;">
-    <h2 style="color: white; margin: 0;">Freelancer Amit</h2>
-    <div>
-      <a href="/" style="margin: 0 10px; color: white; text-decoration: none;">Home</a>
-      <a href="/services" style="margin: 0 10px; color: white; text-decoration: none;">Services</a>
-      <a href="/pricing" style="margin: 0 10px; color: white; text-decoration: none;">Pricing</a>
-      <a href="/documents" style="margin: 0 10px; color: white; text-decoration: none;">Documents</a>
-      <a href="/contact" style="margin: 0 10px; color: white; text-decoration: none;">Contact</a>
-      {% if session.get('user') %}
-        <a href="/logout" style="margin: 0 10px; color: white; text-decoration: none;">Logout</a>
-      {% else %}
-        <a href="/login" style="margin: 0 10px; color: white; text-decoration: none;">Login</a>
-        <a href="/signup" style="margin: 0 10px; color: white; text-decoration: none;">Signup</a>
-      {% endif %}
-    </div>
-  </div>
+<nav style="background-color: #0077cc; padding: 15px; text-align: center;">
+  <a href="/" style="color: white; text-decoration: none; margin: 0 15px;">Home</a>
+  <a href="/services" style="color: white; text-decoration: none; margin: 0 15px;">Services</a>
+  <a href="/pricing" style="color: white; text-decoration: none; margin: 0 15px;">Pricing</a>
+  <a href="/documents" style="color: white; text-decoration: none; margin: 0 15px;">Documents</a>
+  <a href="/contact" style="color: white; text-decoration: none; margin: 0 15px;">Contact</a>
+  {% if session.get('user') %}
+    <span style="color: #aaffaa; margin-left: 30px;">👤 {{ session['user'] }}</span>
+    <a href="/logout" style="color: yellow; text-decoration: none; margin-left: 15px;">Logout</a>
+  {% else %}
+    <a href="/login" style="color: white; text-decoration: none; margin-left: 15px;">Login</a>
+    <a href="/signup" style="color: white; text-decoration: none; margin-left: 15px;">Signup</a>
+  {% endif %}
 </nav>
