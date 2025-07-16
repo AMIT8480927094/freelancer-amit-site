@@ -1,63 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ service.title }} – Freelancer Amit</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f2faff;
-      color: #222;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h2 {
-      color: #007acc;
-      margin-bottom: 10px;
-    }
-    .details {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-    .details:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-    .price {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #28a745;
-    }
-    a.back-link {
-      display: inline-block;
-      margin-top: 30px;
-      color: #007acc;
-      text-decoration: none;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>{{ service.title }} – Freelancer Amit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  {% include 'navbar.html' %}
+<body class="bg-gray-100 text-gray-800">
 
-  <div class="container">
-    <div class="details">
-      <h2>{{ service.title }}</h2>
-      <p>{{ service.desc }}</p>
-      <div class="price">💰 Price: {{ service.price }}</div>
-    </div>
+    {% include 'navbar.html' %}
 
-    <a class="back-link" href="{{ url_for('services') }}"><i class="fas fa-arrow-left"></i> Back to Services</a>
-  </div>
+    <section class="max-w-4xl mx-auto px-4 py-16">
+        <div class="bg-white p-8 rounded shadow-md">
+            <h1 class="text-3xl font-extrabold text-indigo-700 mb-4">{{ service.title }}</h1>
+            <p class="text-lg text-gray-700 mb-6">{{ service.desc }}</p>
+            <div class="text-xl font-bold text-green-700 mb-6">Service Price: {{ service.price }}</div>
+
+            <a href="{{ url_for('services_page') }}" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded shadow transition">
+                ← Back to All Services
+            </a>
+        </div>
+    </section>
+
 </body>
 </html>
