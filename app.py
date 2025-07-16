@@ -17,7 +17,7 @@ def services():
 
 @app.route('/pricing')
 def pricing():
-    return render_template('pricing.html')
+    return render_template('pricing.html', services=services_info)
 
 @app.route('/documents')
 def documents():
