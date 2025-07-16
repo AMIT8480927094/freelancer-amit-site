@@ -1,36 +1,86 @@
+{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pricing – Freelancer Amit</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Pricing - Freelancer Amit</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .service-box {
+            background: #f9f9ff;
+            margin-bottom: 20px;
+            border-left: 6px solid #003366;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .service-box:hover {
+            background: #e0ecf7;
+            transform: scale(1.02);
+        }
+
+        .service-title {
+            font-weight: bold;
+            color: #002244;
+            font-size: 20px;
+        }
+
+        .service-desc {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .service-price {
+            color: #006400;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                margin: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-pink-100 text-gray-800">
-
-  {% include 'navbar.html' %}
-
-  <section class="max-w-3xl mx-auto px-6 py-10">
-    <h1 class="text-3xl font-bold text-center text-pink-800 mb-6">Pricing</h1>
-    <div class="space-y-4">
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">💻 Website Design</h2>
-        <p>Starts at ₹1499 – HTML, CSS, Python Based Responsive Sites</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">🧾 GST Filing</h2>
-        <p>Monthly/Quarterly GST Filing – ₹499 onwards</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">📄 ITR Filing</h2>
-        <p>Income Tax Return Filing – ₹399</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">🔐 DSC Certificate</h2>
-        <p>Digital Signature Certificate – ₹899</p>
-      </div>
+<body>
+    <div class="container">
+        <h2>💼 Our Pricing</h2>
+        {% for name, details in services.items() %}
+        <div class="service-box">
+            <div class="service-title">{{ details.title }}</div>
+            <div class="service-desc">{{ details.desc }}</div>
+            <div class="service-price">{{ details.price }}</div>
+        </div>
+        {% endfor %}
     </div>
-  </section>
-
 </body>
 </html>
