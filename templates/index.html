@@ -1,22 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freelancer Amit – Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Freelancer Amit – Web Developer & Business Legal Solution</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            background: #f0f4f8;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-r from-blue-100 to-purple-100 text-gray-800">
+<body class="text-gray-800">
+    {% include 'navbar.html' %}
 
-  {% include 'navbar.html' %}
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Freelancer Amit</h1>
+        <p class="text-xl md:text-2xl mb-6">Web Development & Business Legal Services All in One Place</p>
+        <a href="{{ url_for('services_page') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Explore Services</a>
+    </section>
 
-  <section class="text-center py-16 px-4">
-    <h1 class="text-4xl font-bold text-indigo-700 mb-4">Hi, I'm Freelancer Amit</h1>
-    <p class="text-lg mb-6">Web Developer & Business Legal Support for GST, ITR, DSC & more</p>
-    <a href="{{ url_for('services_page') }}"> class="bg-indigo-600 text-white px-6 py-3 rounded shadow hover:bg-indigo-700 transition">
-      Explore My Services
-    </a>
-  </section>
+    <!-- About Me Section -->
+    <section class="py-16 px-6 md:px-20 bg-white shadow-inner">
+        <h2 class="text-3xl font-bold mb-6 text-center text-indigo-600">About Me</h2>
+        <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed">
+            Hello! I'm <strong>Amit</strong>, a professional web developer and legal consultant based in Bhubaneswar, Odisha.
+            I specialize in website creation, GST filing, ITR services, business registration, and much more. With a passion for helping businesses grow, I bring reliable and affordable services to entrepreneurs, startups, and freelancers across India.
+        </p>
+    </section>
 
+    <!-- Services Gallery -->
+    <section class="py-16 px-6 md:px-20 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10 text-indigo-700">Our Top Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=GST+Filing" alt="GST Filing" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">GST Return Filing</h3>
+                <p class="text-sm text-gray-600">Monthly/Quarterly GSTR-1, 3B, ITC Reconciliation, E-way Bill.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=ITR+Filing" alt="ITR Filing" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">ITR Filing</h3>
+                <p class="text-sm text-gray-600">Salary, Business, Freelancers, PAN/TAN application & more.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=Business+Registration" alt="Registration" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">Business Registration</h3>
+                <p class="text-sm text-gray-600">Proprietorship, MSME, FSSAI, DPIIT, Shop License etc.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=Company+Filing" alt="ROC Filing" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">ROC & MCA Filing</h3>
+                <p class="text-sm text-gray-600">DIN, DSC, MGT-7, AOC-4, Director KYC.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=Payroll+&+PT" alt="Payroll" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">Payroll & Compliance</h3>
+                <p class="text-sm text-gray-600">PF/ESI Registration & Filing, PT, Salary Slips.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
+                <img src="https://via.placeholder.com/400x200?text=Bookkeeping" alt="Bookkeeping" class="w-full rounded mb-4">
+                <h3 class="font-bold text-lg">Accounting Services</h3>
+                <p class="text-sm text-gray-600">Monthly bookkeeping, reconciliation, ledger reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
+        <h2 class="text-3xl font-bold mb-4">Need Professional Help?</h2>
+        <p class="mb-6">Connect with me for fast and affordable web development or legal business services!</p>
+        <a href="{{ url_for('contact') }}" class="bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full shadow hover:bg-gray-200 transition">Contact Me</a>
+    </section>
 </body>
 </html>
