@@ -3,84 +3,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pricing - Freelancer Amit</title>
+    <title>Service Pricing – Freelancer Amit</title>
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            font-family: Arial, sans-serif;
+            background: #f7f9fc;
             margin: 0;
             padding: 0;
         }
-
-        .container {
+        .pricing-container {
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 30px auto;
             padding: 20px;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #003366;
-            margin-bottom: 30px;
-            font-size: 32px;
-        }
-
-        .service-box {
-            background: #f9f9ff;
-            margin-bottom: 20px;
-            border-left: 6px solid #003366;
-            padding: 15px 20px;
             border-radius: 12px;
-            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
         }
-
-        .service-box:hover {
-            background: #e0ecf7;
-            transform: scale(1.02);
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 30px;
         }
-
+        .category {
+            margin-bottom: 25px;
+        }
+        .category h2 {
+            font-size: 22px;
+            background: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .service-item {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+        }
         .service-title {
             font-weight: bold;
-            color: #002244;
-            font-size: 20px;
+            color: #333;
         }
-
         .service-desc {
-            margin: 5px 0;
-            font-size: 15px;
             color: #555;
         }
-
         .service-price {
-            color: #006400;
+            float: right;
             font-weight: bold;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-
-        @media screen and (max-width: 600px) {
-            .container {
-                margin: 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
+            color: #2196F3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>💼 Our Pricing</h2>
-        {% for name, details in services.items() %}
-        <div class="service-box">
-            <div class="service-title">{{ details.title }}</div>
-            <div class="service-desc">{{ details.desc }}</div>
-            <div class="service-price">{{ details.price }}</div>
+    <div class="pricing-container">
+        <h1>Our Pricing</h1>
+
+        {% set categories = {
+            "Accounting & Bookkeeping": ["bookkeeping", "reconciliation", "finalaccounts"],
+            "GST Services": ["gstregistration", "gstfiling", "gstupdate", "ewaybill", "itc"],
+            "Income Tax Services": ["pan", "itr", "itrbusiness", "tds", "advancetax"],
+            "Business/Startup Registration": ["proprietorship", "msme", "fssai", "startupindia", "shoplicense"],
+            "ROC & MCA Filing": ["companyinc", "dsc", "roc", "dirkyc"],
+            "Payroll & Compliance": ["pfesi", "pfesireturn", "salaryslip", "pt"],
+            "Documents & Reporting": ["projectreport", "invoice", "docchecklist", "quotation"]
+        } %}
+
+        {% for category, keys in categories.items() %}
+        <div class="category">
+            <h2>{{ category }}</h2>
+            {% for key in keys %}
+            <div class="service-item">
+                <span class="service-title">{{ services[key].title }}</span>
+                <span class="service-price">{{ services[key].price }}</span>
+                <div class="service-desc">{{ services[key].desc }}</div>
+            </div>
+            {% endfor %}
         </div>
         {% endfor %}
+
     </div>
 </body>
 </html>
