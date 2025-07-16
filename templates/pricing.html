@@ -1,36 +1,68 @@
+{% include 'navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pricing – Freelancer Amit</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Service Pricing – Freelancer Amit</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0077cc;
+      margin-bottom: 30px;
+    }
+    .service-block {
+      margin-bottom: 25px;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background: #fdfdfd;
+      transition: 0.3s;
+    }
+    .service-block:hover {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    }
+    .service-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+    .service-desc {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #555;
+    }
+    .service-price {
+      margin-top: 8px;
+      font-weight: bold;
+      color: #0a7d1f;
+    }
+  </style>
 </head>
-<body class="bg-pink-100 text-gray-800">
-
-  {% include 'navbar.html' %}
-
-  <section class="max-w-3xl mx-auto px-6 py-10">
-    <h1 class="text-3xl font-bold text-center text-pink-800 mb-6">Pricing</h1>
-    <div class="space-y-4">
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">💻 Website Design</h2>
-        <p>Starts at ₹1499 – HTML, CSS, Python Based Responsive Sites</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">🧾 GST Filing</h2>
-        <p>Monthly/Quarterly GST Filing – ₹499 onwards</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">📄 ITR Filing</h2>
-        <p>Income Tax Return Filing – ₹399</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="font-bold text-lg">🔐 DSC Certificate</h2>
-        <p>Digital Signature Certificate – ₹899</p>
-      </div>
+<body>
+  <div class="container">
+    <h2>📋 Our Service Pricing</h2>
+    {% for name, details in services.items() %}
+    <div class="service-block">
+      <div class="service-title">{{ details.title }}</div>
+      <div class="service-desc">{{ details.desc }}</div>
+      <div class="service-price">💰 {{ details.price }}</div>
     </div>
-  </section>
-
+    {% endfor %}
+  </div>
 </body>
 </html>
