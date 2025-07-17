@@ -2,170 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Freelancer Amit – Web Developer & Business Legal Solution</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Freelancer Amit – Web Developer & Business Legal Solution</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f7f9fc;
+            padding: 0;
+            background: #f4f6f9;
         }
 
-        .sidebar {
-            height: 100vh;
-            width: 220px;
-            position: fixed;
-            background-color: #2c3e50;
-            padding-top: 20px;
+        header {
+            background-color: #2a9d8f;
             color: white;
-        }
-
-        .sidebar a {
-            padding: 12px 20px;
-            display: block;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .sidebar a:hover {
-            background-color: #34495e;
-        }
-
-        .main-content {
-            margin-left: 240px;
-            padding: 20px;
-        }
-
-        .intro {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            padding: 1rem;
             text-align: center;
         }
 
-        .intro img {
-            max-width: 150px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        .service-section h2 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .services-grid {
+        nav {
+            background: #264653;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            width: calc(33.333% - 20px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+        nav a {
+            color: white;
+            padding: 0.8rem 1.2rem;
             text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #1d3557;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro img {
+            width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .intro-text {
+            max-width: 600px;
+        }
+
+        h2 {
             color: #333;
         }
 
-        .service-card:hover {
-            transform: scale(1.03);
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .service-card img {
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
             width: 100%;
-            border-radius: 5px;
+            max-height: 120px;
+            object-fit: contain;
         }
 
-        .service-card h3 {
-            margin: 10px 0 5px;
+        .card h3 {
+            margin: 0.5rem 0;
+            font-size: 18px;
         }
 
-        @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-                padding: 10px;
+        @media (max-width: 600px) {
+            .intro {
+                flex-direction: column;
+                text-align: center;
             }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-            }
-
-            .service-card {
-                width: 100%;
+            nav {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('pricing') }}">Pricing</a>
-        <a href="{{ url_for('documents') }}">Documents Needed</a>
-        <a href="{{ url_for('services_page') }}">All Services</a>
-        <a href="{{ url_for('contact') }}">Contact</a>
-        <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('signup') }}">Signup</a>
-    </div>
+<header>
+    <h1>Freelancer Amit</h1>
+    <p>Web Developer & Business Legal Solution</p>
+</header>
 
-    <div class="main-content">
-        <div class="intro">
-            <img src="{{ url_for('static', filename='amit.jpg') }}" alt="Amit Photo">
-            <h1>Hi, I'm Freelancer Amit</h1>
-            <p>Professional Web Developer & Business Legal Expert based in Bhubaneswar. I help startups and businesses with GST, ITR, Company Registration, and other legal services with accuracy and speed.</p>
-        </div>
+<nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('pricing') }}">Pricing</a>
+    <a href="{{ url_for('documents') }}">Documents Needed</a>
+    <a href="{{ url_for('services_page') }}">All Services</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+</nav>
 
-        <div class="service-section">
-            <h2>Top Services</h2>
-            <div class="services-grid">
-                <!-- Top 6 Services (Clickable) -->
-                <a href="{{ url_for('service_details', service_name='Accounting Services') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='accounting.jpeg') }}" alt="Accounting">
-                    <h3>Accounting Services</h3>
-                    <p>Daily/Monthly bookkeeping, ledger, journal & financial reports.</p>
-                </a>
-                <a href="{{ url_for('service_details', service_name='Business Registration') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='business-registration.jpeg') }}" alt="Registration">
-                    <h3>Business Registration</h3>
-                    <p>Register your company: Pvt Ltd, OPC, LLP, or Proprietorship.</p>
-                </a>
-                <a href="{{ url_for('service_details', service_name='GST Return Filing') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='gst.jpeg') }}" alt="GST">
-                    <h3>GST Return Filing</h3>
-                    <p>Monthly/Quarterly GST returns, GSTR-1, GSTR-3B, and more.</p>
-                </a>
-                <a href="{{ url_for('service_details', service_name='ITR Filing') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='itr.jpeg') }}" alt="ITR">
-                    <h3>ITR Filing</h3>
-                    <p>Income Tax Return for salaried, self-employed & business.</p>
-                </a>
-                <a href="{{ url_for('service_details', service_name='Payroll & Compliance') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='payroll.jpeg') }}" alt="Payroll">
-                    <h3>Payroll & Compliance</h3>
-                    <p>Employee salary processing, PF, ESI, PT & labor law support.</p>
-                </a>
-                <a href="{{ url_for('service_details', service_name='roc filling') }}" class="service-card">
-                    <img src="{{ url_for('static', filename='roc.jpg') }}" alt="ROC">
-                    <h3>ROC Filing</h3>
-                    <p>Annual ROC compliance for companies, AOC-4, MGT-7 & more.</p>
-                </a>
-            </div>
+<div class="container">
+    <div class="intro">
+        <img src="{{ url_for('static', filename='amit-photo.jpg') }}" alt="Amit">
+        <div class="intro-text">
+            <h2>Welcome to My Freelance Services</h2>
+            <p>Hello! I am <strong>Amit</strong>, a professional web developer and consultant offering all kinds of services related to GST, ITR, ROC, company registration, and more. With experience in a CA firm, I help businesses set up and run legally and efficiently. Explore my services below!</p>
         </div>
     </div>
+
+    <h2>Top Services</h2>
+    <div class="services-grid">
+        {% for service in top_services %}
+        <a href="{{ url_for('service_detail', service_name=service.name|replace(' ', '-')|lower) }}" class="card">
+            <img src="{{ url_for('static', filename=service.image) }}" alt="{{ service.name }}">
+            <h3>{{ service.name }}</h3>
+        </a>
+        {% endfor %}
+    </div>
+</div>
 
 </body>
 </html>
