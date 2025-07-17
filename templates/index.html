@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Freelancer Amit – Web Developer & Business Legal Solution</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <style>
-        body {
-            background: #f0f4f8;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freelancer Amit – Web Developer & Legal Consultant</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
-<body class="text-gray-800">
-    {% include 'navbar.html' %}
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Freelancer Amit's World</h1>
-        <p class="text-xl md:text-2xl mb-6">Web Development & Business Legal Services All in One Place</p>
-        <a href="{{ url_for('services_page') }}" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Explore Services</a>
-    </section>
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white p-4 text-center shadow-md">
+    <h1 class="text-2xl font-bold">Freelancer Amit</h1>
+    <p class="text-sm">Web Developer & Business Legal Solution</p>
+  </header>
 
-    <!-- About Me Section -->
-    <section class="py-16 px-6 md:px-20 bg-white shadow-inner">
-        <h2 class="text-3xl font-bold mb-6 text-center text-indigo-600">About Me</h2>
-        <div class="flex justify-center mb-6">
-    <img src="{{ url_for('static', filename='amit.jpg') }}" alt="Amit Photo" class="w-40 h-40 rounded-full shadow-lg border-4 border-white">
-</div>
-        <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed">
-            Hello! I'm <strong>Amit Samal</strong>, a professional Student & web developer and legal consultant based in Bhubaneswar, Odisha.
-            I specialize in website creation, GST filing, ITR services, business registration, Poster & Flayer design, Business LOGO Making and much more. With a passion for helping businesses grow, I bring reliable and affordable services to entrepreneurs, startups, and freelancers across India.
-        </p>
-    </section>
+  <!-- Introduction Section -->
+  <section class="p-6 text-center bg-white" data-aos="fade-down" data-aos-duration="1000">
+    <img src="{{ url_for('static', filename='amit-profile.jpeg') }}" alt="Amit Photo" class="w-32 h-32 mx-auto rounded-full shadow-lg mb-4">
+    <h2 class="text-xl font-semibold mb-2">Welcome to My Freelancing Website!</h2>
+    <p class="text-gray-600 max-w-xl mx-auto">
+      I am Amit, an experienced freelancer from Bhubaneswar, Odisha. I provide professional services like company registration, GST, ITR, ROC filing, and custom website development. Let's grow your business with legal and digital support!
+    </p>
+  </section>
 
-    <!-- Services Gallery -->
-    <section class="py-16 px-6 md:px-20 bg-gray-100">
-        <h2 class="text-3xl font-bold text-center mb-10 text-indigo-700">Our Top Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='gst.jpeg') }}" alt="GST Filing" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">GST Return Filing</h3>
-                <p class="text-sm text-gray-600">Monthly/Quarterly GSTR-1, 3B, ITC Reconciliation, E-way Bill.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='itr.jpeg') }}" alt="ITR Filing" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">ITR Filing</h3>
-                <p class="text-sm text-gray-600">Salary, Business, Freelancers, PAN/TAN application & more.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='business-registration.jpeg') }}" alt="Business Registration" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">Business Registration</h3>
-                <p class="text-sm text-gray-600">Proprietorship, MSME, FSSAI, DPIIT, Shop License etc.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='roc.jpg') }}" alt="ROC Filing" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">ROC & MCA Filing</h3>
-                <p class="text-sm text-gray-600">DIN, DSC, MGT-7, AOC-4, Director KYC.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='payroll.jpeg') }}" alt="Payroll" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">Payroll & Compliance</h3>
-                <p class="text-sm text-gray-600">PF/ESI Registration & Filing, PT, Salary Slips.</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow hover:shadow-xl transition">
-                <img src="{{ url_for('static', filename='accounting.jpeg') }}" alt="Bookkeeping" class="w-full rounded mb-4">
-                <h3 class="font-bold text-lg">Accounting Services</h3>
-                <p class="text-sm text-gray-600">Monthly bookkeeping, reconciliation, ledger reports.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Services Images Grid -->
+  <section class="p-6 bg-gray-100" data-aos="fade-up" data-aos-duration="1200">
+    <h2 class="text-center text-2xl font-bold mb-6 text-indigo-700">My Top Services</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-    <!-- CTA -->
-    <section class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
-        <h2 class="text-3xl font-bold mb-4">Need Professional Help?</h2>
-        <p class="mb-6">Connect with me for fast and affordable web development or legal business services!</p>
-        <a href="{{ url_for('contact') }}" class="bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full shadow hover:bg-gray-200 transition">Contact Me</a>
-    </section>
+      <!-- Service 1 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='accounting.jpeg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">Accounting Services</h3>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='business-registration.jpeg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">Business Registration</h3>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='gst.jpeg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">GST Return Filing</h3>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='itr.jpeg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">ITR Filing</h3>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='payroll.jpeg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">Payroll & Compliance</h3>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="{{ url_for('static', filename='roc.jpg') }}" class="w-full rounded-md mb-3" />
+        <h3 class="text-center font-semibold">ROC Filing</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 bg-indigo-600 text-white mt-10">
+    <p>&copy; 2025 Freelancer Amit – All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 </html>
