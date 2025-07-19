@@ -81,7 +81,7 @@ services_data = {
 }
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/services')
@@ -95,5 +95,7 @@ def service_detail(service_id):
         return render_template('service_detail.html', service=service)
     return "Service not found", 404
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# Run app for deployment
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 10000))  # default to 10000 if not set
+    app.run(host='0.0.0.0', port=port)
