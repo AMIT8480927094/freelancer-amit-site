@@ -1,33 +1,84 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+import os
 
 app = Flask(__name__)
 
-services_data = {
-    1: {'title': 'Real Business Service 1', 'description': 'Accurate description of Business & Legal Service 1.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 1. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    2: {'title': 'Real Business Service 2', 'description': 'Accurate description of Business & Legal Service 2.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 2. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    3: {'title': 'Real Business Service 3', 'description': 'Accurate description of Business & Legal Service 3.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 3. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    4: {'title': 'Real Business Service 4', 'description': 'Accurate description of Business & Legal Service 4.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 4. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    5: {'title': 'Real Business Service 5', 'description': 'Accurate description of Business & Legal Service 5.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 5. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    6: {'title': 'Real Business Service 6', 'description': 'Accurate description of Business & Legal Service 6.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 6. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    7: {'title': 'Real Business Service 7', 'description': 'Accurate description of Business & Legal Service 7.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 7. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    8: {'title': 'Real Business Service 8', 'description': 'Accurate description of Business & Legal Service 8.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 8. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    9: {'title': 'Real Business Service 9', 'description': 'Accurate description of Business & Legal Service 9.', 'price': '1000–1500', 'documents': ['PAN Card', 'Aadhar', 'Business Proof (e.g., Utility Bill, Shop License)'], 'details': 'This is the full detailed explanation of Business & Legal Service 9. It includes what the service is, how it helps a business owner, government requirements, common mistakes, and penalties if not complied with. It demonstrates expertise and builds trust.'},
-    
+# ========================
+# List of 75 services
+# ========================
+services = [
+    {
+        "id": 1,
+        "name": "GST Registration",
+        "price": "1000 - 1500",
+        "description": "Register your business under GST to comply with Indian tax regulations."
+    },
+    {
+        "id": 2,
+        "name": "ITR Filing (Individual)",
+        "price": "500 - 1000",
+        "description": "Income Tax Return filing for salaried or freelance individuals."
+    },
+    {
+        "id": 3,
+        "name": "PVT LTD Company Registration",
+        "price": "3000 - 5000",
+        "description": "Incorporate your private limited company with MCA filings and PAN/TAN."
+    },
+    # ...continue like this up to id 75
+    {
+        "id": 75,
+        "name": "Instagram Creator Website Design",
+        "price": "1000 - 2000",
+        "description": "Custom portfolio site for influencers and creators using HTML/Python."
+    }
+]
+
+# ========================
+# ROUTES
+# ========================
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/services')
-def services():
-    return render_template('services.html', services=services_data)
+def all_services():
+    return render_template('services.html', services=services)
 
-@app.route('/service_detail/<int:service_id>')
+@app.route('/service/<int:service_id>')
 def service_detail(service_id):
-    service = services_data.get(service_id)
-    if service:
-        return render_template('service_detail.html', service=service)
-    return "Service not found", 404
+    # Find service by ID
+    service = next((s for s in services if s["id"] == service_id), None)
+    if not service:
+        return "Service not found", 404
+    return render_template('service_detail.html', service=service)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=port))
+@app.route('/pricing')
+def pricing():
+    return render_template('pricing.html', services=services)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+# Run app for deployment
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
