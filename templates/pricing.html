@@ -1,0 +1,74 @@
+<!-- templates/pricing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="pricing">
+        <h1>Our Pricing</h1>
+        <p>Transparent and affordable pricing for all business & web services.</p>
+
+        <h2>📁 Category 1: Business & Legal Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in business_services %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><a href="{{ url_for('service_detail', service_id=loop.index) }}">{{ service.name }}</a></td>
+                    <td>{{ service.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>💻 Category 2: Web Development & Design Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Service</th>
+                    <th>Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in web_services %}
+                <tr>
+                    <td>{{ loop.index + business_services|length }}</td>
+                    <td><a href="{{ url_for('service_detail', service_id=loop.index + business_services|length) }}">{{ service.name }}</a></td>
+                    <td>{{ service.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🎁 Special Combo Offers & Bonus Deals</h2>
+        <ul>
+            <li>✅ GST + ITR Combo – ₹2000 only</li>
+            <li>✅ Website + Logo + 2 Posters – ₹4000</li>
+            <li>✅ MSME + PAN + Bank A/c Package – ₹1500</li>
+            <li>✅ Yearly Tax Package (GST + ITR + TDS) – ₹7000</li>
+        </ul>
+
+        <p style="margin-top: 15px;"><strong>Note:</strong> All pricing is indicative. Final amount may vary slightly depending on client requirements or custom requests.</p>
+
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

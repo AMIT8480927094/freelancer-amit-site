@@ -1,0 +1,59 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Freelancer Amit – Business & Web Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Banner -->
+    <header>
+        <h1>Welcome to Freelancer Amit</h1>
+        <p>Your one-stop solution for Business & Web Services</p>
+    </header>
+
+    <!-- Services Overview -->
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-box">
+            <h3>🧾 Business & Legal Services (50+)</h3>
+            <p>Company registration, GST, ITR, DSC, Bookkeeping, MSME, TDS & more.</p>
+            <a href="{{ url_for('services') }}"><button>View All</button></a>
+        </div>
+
+        <div class="service-box">
+            <h3>💻 Web Development & Design (25+)</h3>
+            <p>Static websites, birthday pages, logo design, flyers, posters & more.</p>
+            <a href="{{ url_for('services') }}"><button>View All</button></a>
+        </div>
+
+        <div class="service-box">
+            <h3>💰 View Pricing</h3>
+            <p>Transparent & affordable pricing for all services.</p>
+            <a href="{{ url_for('pricing') }}"><button>Check Plans</button></a>
+        </div>
+
+        <div class="service-box">
+            <h3>👤 Already a User?</h3>
+            <p>Login to view your dashboard and manage services.</p>
+            <a href="{{ url_for('login') }}"><button>Login</button></a>
+        </div>
+
+        <div class="service-box">
+            <h3>📞 Contact Us</h3>
+            <p>Need help or a custom plan? Get in touch!</p>
+            <a href="{{ url_for('contact') }}"><button>Contact Now</button></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

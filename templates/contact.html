@@ -1,0 +1,35 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="contact-section">
+        <h1>Contact Us</h1>
+        <form action="/contact" method="POST" class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="phone">Your Mobile Number:</label>
+            <input type="tel" name="phone" id="phone" required pattern="[0-9]{10}" maxlength="10">
+
+            <label for="message">Your Message:</label>
+            <textarea name="message" id="message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="dashboard-section">
+        <h1>Welcome to Your Dashboard</h1>
+        <p>Hello, <strong>User</strong>! (This will show your name or mobile later)</p>
+
+        <div class="dashboard-actions">
+            <a href="/services" class="btn">📋 View All Services</a>
+            <a href="/pricing" class="btn">💰 View Pricing</a>
+            <a href="/contact" class="btn">📞 Contact Support</a>
+        </div>
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

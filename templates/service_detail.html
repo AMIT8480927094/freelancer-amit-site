@@ -1,0 +1,36 @@
+<!-- templates/service_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ service.name }} – Service Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="service-detail">
+        <h1>{{ service.name }}</h1>
+
+        <h3>Description:</h3>
+        <p>{{ service.description }}</p>
+
+        <h3>Price Range:</h3>
+        <p>₹{{ service.price }}</p>
+
+        <h3>Documents Required:</h3>
+        <ul>
+            {% for doc in service.documents %}
+                <li>{{ doc }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Detailed Explanation:</h3>
+        <p>{{ service.details }}</p>
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

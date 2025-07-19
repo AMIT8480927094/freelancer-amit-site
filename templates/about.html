@@ -1,0 +1,52 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <section class="about-section">
+        <h1>About Freelancer Amit</h1>
+        <p>Hello, I'm Amit — a dedicated freelancer providing **Business Accounting Solutions** and **Web Development Services** under one roof.</p>
+
+        <h2>Who I Am</h2>
+        <p>
+            With years of experience working with startups, creators, and small business owners, I specialize in:
+        </p>
+        <ul>
+            <li>📊 GST Filing, ITR, Bookkeeping, MSME, DSC, Business Incorporation</li>
+            <li>💻 Website Designing, Posters, Flyers, Logos, Photo Frames</li>
+            <li>🔐 Legal & Compliance Support for Small & Medium Businesses</li>
+        </ul>
+
+        <h2>My Mission</h2>
+        <p>
+            My mission is simple — to make legal, tax, and tech services easy and affordable for every Indian entrepreneur or creator. Whether you’re a small business owner, Instagram influencer, or startup founder, I offer:
+        </p>
+        <ul>
+            <li>✅ Transparent Pricing</li>
+            <li>✅ Fast Delivery</li>
+            <li>✅ 100% Freelance Personal Support</li>
+        </ul>
+
+        <h2>Why Choose Me?</h2>
+        <ul>
+            <li>✔️ Real Freelance Work (No middlemen)</li>
+            <li>✔️ Combined Services: Legal + Digital</li>
+            <li>✔️ Personalized Dashboard & Mobile Support</li>
+        </ul>
+
+        <p>Thanks for trusting Freelancer Amit. Let’s build your business together!</p>
+    </section>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="login-section">
+        <h1>Login</h1>
+        <form action="/login" method="POST" class="login-form">
+            <label for="mobile">Enter Mobile Number:</label>
+            <input type="tel" name="mobile" id="mobile" required pattern="[0-9]{10}" maxlength="10" placeholder="e.g. 9876543210">
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don’t have an account? <a href="/signup">Sign up here</a></p>
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

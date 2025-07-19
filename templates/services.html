@@ -1,0 +1,37 @@
+<!-- templates/services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Services – Freelancer Amit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="services">
+        <h1>Our Services</h1>
+        <p>Explore all professional services offered under two expert categories.</p>
+
+        <h2>Category 1: Business & Legal Services</h2>
+        <ul>
+            {% for service in business_services %}
+                <li><a href="{{ url_for('service_detail', service_id=service.id) }}">{{ loop.index }}. {{ service.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        <h2>Category 2: Web Development & Design Services</h2>
+        <ul>
+            {% for service in web_services %}
+                <li><a href="{{ url_for('service_detail', service_id=service.id) }}">{{ loop.index + business_services|length }}. {{ service.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>
